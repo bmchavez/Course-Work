@@ -58,8 +58,14 @@ mo = ha_regex.search('He said "HaHaHa"')
 print(mo.group())
 print()
 
-# longer example of {x}
-phone_regex = re.compile(r'((\d\d\d-)?\d\d\d-\d\d\d\d(,)?) {3}')
-mo = phone_regex.search(
-    'My phone numbers are 847-123-1234')
-print(mo.group())
+#  GREEDY MATCHING - The default matching style matches the max (in this case 5 digits)
+digit_regex = re.compile(r'(\d){3,5}')
+mo = digit_regex.search('1234567890')
+print('Greedy Matching: ' + mo.group())
+print()
+
+#  NONGREEDY MATCHING - Matching style uses a "{3,5}?" notation to match the min (in this case 3 digits)
+digit_regex = re.compile(r'(\d){3,5}?')
+mo = digit_regex.search('1234567890')
+print('Nongreedy Matching: ' + mo.group())
+print()
