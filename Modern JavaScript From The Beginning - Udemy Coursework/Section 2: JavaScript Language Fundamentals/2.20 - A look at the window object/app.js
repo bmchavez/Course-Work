@@ -50,9 +50,9 @@ val = window.location.search;
 
 // Navigator Object - deals with the actual browser
 val = window.navigator;
-// val = window.navigator.appName;
-// val = window.navigator.appVersion;
-// val = window.navigator.userAgent;
+val = window.navigator.appName;
+val = window.navigator.appVersion;
+val = window.navigator.userAgent;
 
 
 console.log(val);
