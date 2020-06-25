@@ -1,5 +1,4 @@
 // Create Element
-
 const li = document.createElement('li');
 
 // Add Class
