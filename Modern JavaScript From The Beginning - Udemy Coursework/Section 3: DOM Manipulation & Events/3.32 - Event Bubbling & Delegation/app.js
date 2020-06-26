@@ -22,7 +22,7 @@
 
 // delItem.addEventListener("click", deleteItem);
 
-document.body.addEventListener('click', deleteItem)
+document.body.addEventListener('click', deleteItem);
 
 
 function deleteItem(e){
