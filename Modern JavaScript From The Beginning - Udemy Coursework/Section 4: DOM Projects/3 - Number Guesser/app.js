@@ -11,7 +11,7 @@ GAME FUNCTION:
 let min = 1,
     max = 10,
     winningNum = 2,
-    guessesLeft =3;
+    guessesLeft = 3;
 
 // UI Elements
 const UIgame = document.querySelector('#game'),
@@ -38,16 +38,42 @@ UIguessBtn.addEventListener('click', function(){
 
   // Check if won
   if(guess === winningNum){
-    // Disable input
-    UIguessInput.disabled = true;
-    // Change border color
-    UIguessInput.style.borderColor = 'green';
-    // Set Message
-    setMessage(`${winningNum} is correct, YOU WIN!`, 'green');
+    gameOver(true, `${winningNum} is correct, YOU WIN!`)
   } else{
+    // Wrong number
+    guessesLeft -= 1;
+  
+    if(guessesLeft === 0){
+      // GAME OVER - LOST
+      gameOver(false, `Game Over, you lost. The correct number was ${winningNum}`);
+    } else {
+      // GAME CONTINUES - ANSWER WRONG
+      // Change border color
+      UIguessInput.style.borderColor = 'red';
 
+      // Clear Input
+      UIguessInput.value = '';
+
+      // Tell user it is the wrong number
+      setMessage(`${guess} is not correct, ${guessesLeft} guesses left!`, 'red')
+    }
   }
 })
+
+// Game over
+function gameOver(won, msg){
+  let color;
+  won === true ? color = 'green' : color = 'red';
+
+  // Disable input
+  UIguessInput.disabled = true;
+  // Change border color
+  UIguessInput.style.borderColor = color;
+  // // Set text color
+  // UImessage.style.color = color
+  // Set Message
+  setMessage(msg, color);
+}
 
 // Set message
 function setMessage(msg, color){
