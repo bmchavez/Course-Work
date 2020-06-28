@@ -1,29 +1,39 @@
-const personPrototypes = {
-  greeting: function() {
-    return `Hello there ${this.firstName} ${this.lastName}`;
-  },
-  getsMarried: function(newLastName) {
+class Person {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.birthday = new Date(dob);
+  }
+
+  greeting() {
+    return `Hello there ${this.firstName} ${this.lastName}`
+  }
+
+  calculateAge() {
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+  getsMarried(newLastName) {
     this.lastName = newLastName;
+  }
+
+  // Static Method (does not need 'this)
+  static addNumbers(x, y) {
+    return x + y;
   }
 }
 
-// ALTERNATIVE WAYS TO CREATE OBJECTS
-const mary = Object.create(personPrototypes);
-mary.firstName = 'Mary';
-mary.lastName = 'Williams';
-mary.age = 30;
+// Instantiate object
+const mary = new Person('Mary', "Williams", '11-13-1980');
 
-mary.getsMarried('Thompson');
+mary.getsMarried('Thomson');
 
+console.log(mary);
 console.log(mary.greeting());
+console.log(mary.calculateAge());
 
+// Accessing Static Method
+console.log(Person.addNumbers(1,2));
 
-const brad = Object.create(personPrototypes, {
-  firstName: {value: 'Brad'},
-  lastName: {value: 'Traversy'},
-  age: {value: 36}
-});
-
-console.log(brad);
-
-console.log(brad.greeting());
