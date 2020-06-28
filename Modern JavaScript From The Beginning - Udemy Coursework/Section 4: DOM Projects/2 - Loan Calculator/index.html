@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Loan Calculator</title>
+    <style>
+      #loading, #results{
+        display: none;
+      }
+    </style>
   </head>
   <body class="bg-dark">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-7 mx-auto">
           <div class="card card-body text-center mt-5">
             <h1 class="heading display-5 pb-3">Loan Caluclator</h1>
             <form id="loan-form">
@@ -42,9 +47,9 @@
             </form>
 
             <!-- LOADER HERE -->
-            <!-- <div id="loading">
+            <div id="loading">
               <img src="img/loading.gif" alt="">
-            </div> -->
+            </div>
 
             <!-- RESULTS -->
             <div id="results" class="pt-4">
