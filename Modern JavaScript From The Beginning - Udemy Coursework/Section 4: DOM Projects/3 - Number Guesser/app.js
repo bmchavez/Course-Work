@@ -10,7 +10,7 @@ GAME FUNCTION:
 // Game values
 let min = 1,
     max = 10,
-    winningNum = 2,
+    winningNum = getRandomNum(min, max),
     guessesLeft = 3;
 
 // UI Elements
@@ -24,6 +24,13 @@ const UIgame = document.querySelector('#game'),
 // Assign UI min and Max
 UIminNum.textContent = min;
 UImaxNum.textContent = max;
+
+// Play again event listener
+UIgame.addEventListener('mousedown', function(e){
+  if(e.target.className === 'play-again'){
+    window.location.reload();
+  }
+})
 
 // Listen for guess
 UIguessBtn.addEventListener('click', function(){
@@ -73,6 +80,16 @@ function gameOver(won, msg){
   // UImessage.style.color = color
   // Set Message
   setMessage(msg, color);
+
+  // Play again?
+  UIguessBtn.value = 'Play Again';
+  UIguessBtn.className += 'play-again';
+
+}
+
+// Get Random Winning number
+function getRandomNum(min, max){
+  return Math.floor(Math.random()*(max-min+1)+min);
 }
 
 // Set message
