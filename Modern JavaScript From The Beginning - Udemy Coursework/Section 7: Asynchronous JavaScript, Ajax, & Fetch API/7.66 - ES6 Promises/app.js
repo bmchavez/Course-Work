@@ -1,15 +1,17 @@
+// Posts variabls will mimick server/database
 const posts = [
-  {title: 'Post One', body:'This is post one'},
-  {title: 'Post Two', body: 'This is post two'}
+  {title: 'Post One', body: 'This is post one!'},
+  {title: 'Post Two', body: 'This is post two!'}
 ];
 
+// Asynchronous Method
 function createPost(post) {
   return new Promise(function(resolve, reject){
     setTimeout(function() {
       posts.push(post);
-
-      const error = false;
-
+      
+      const error = true;
+      
       if(!error) {
         resolve();
       } else {
@@ -18,6 +20,7 @@ function createPost(post) {
     }, 2000);
   });
 }
+
 
 function getPosts() {
   setTimeout(function() {
@@ -29,8 +32,6 @@ function getPosts() {
   }, 1000);
 }
 
-createPost({title: 'Post Three', body: 'This is post three'})
-.then(getPosts)
-.catch(function(err) {
+createPost({title: 'Post Three', body: 'This is post three!'}).then(getPosts).catch(function(err){
   console.log(err);
 });
