@@ -32,7 +32,7 @@ function getJson(){
 }
 
 
-// GET FROM EXTERNAL API
+// GET FROM EXTERNAL API 
 function getExternal(){
   fetch('https://api.github.com/users')
     .then(response => response.json())
