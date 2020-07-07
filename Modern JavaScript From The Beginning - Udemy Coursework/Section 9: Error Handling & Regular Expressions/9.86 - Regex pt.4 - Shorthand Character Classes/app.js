@@ -29,10 +29,25 @@ re = /Hel{2,}o/i;       // Must occur at least {n} times
 // Parentheses () - Grouping
 re = /^([0-9]x){3}$/;   // Must only contain '3x' 3 times
 
+// *******************************************************************************************
+// 9.86 - SHORTHAND CHARACTER CLASSES
 
+re = /\w/;              // Word character - alphanumeric or '_'
+re = /\w+/;             // '+' one or more
+re = /\W/;              // NON-word characters - anything but alphanumeric and '_'
+re = /\d/;              // Matches any digit
+re = /\d+/;             // Matches any digit 0 or more times
+re = /\D/;              // NON-diget characters
+re = /\s/;              // Match whitespace character
+re = /\S/;              // NON-whitespace character
+re = /hell\b/i;         // Word Boundary - must be the full word 'hell'
+
+// Assertions
+re = /x(?=y)/;           // Match 'x' only if it is followed by 'y'
+re = /x(?!y)/;          // Match 'x' only if NOT followed by 'y'
 
 // String to match
-const str = '3x3x3x'
+const str = 'xdy'
 
 // Log Results
 const result = re.exec(str);
