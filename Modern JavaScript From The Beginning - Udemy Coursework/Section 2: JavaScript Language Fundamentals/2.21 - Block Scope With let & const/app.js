@@ -27,3 +27,7 @@ const c = 3;
 // }
 
 console.log('Global Scope:', a,b,c);
+
+
+// VAR HAS A FUNCTION SCOPE
+// LET AND CONST HAVE A BLOCK SCOPE

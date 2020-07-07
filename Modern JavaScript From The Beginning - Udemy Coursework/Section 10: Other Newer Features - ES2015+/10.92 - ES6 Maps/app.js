@@ -36,7 +36,7 @@ for(let value of map1.values()) {
 }
 
 // Loop with forEach
-map1.forEach(function(value, key){
+map1.forEach(function(value, key) {
   console.log(`${key} = ${value}`);
 });
 
