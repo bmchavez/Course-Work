@@ -1,33 +1,34 @@
 // Basic Structure
 
-// (function(){
-//   // Declare private vars and functions
+// IFFY FUNCTION - Runs at beginning of code
+(function(){
+  // Declare private vars and functions
 
-//   return {
-//     // Declare public var and functions
+  return {
+    // Declare public var and functions
 
-//   }
-// })();
+  }
+})();
 
-// // STANDARD MODULE PATTERN
-  // const UIctrl = (function() {
-  //   let text = 'Hello World';
+// STANDARD MODULE PATTERN
+  const UIctrl = (function() {
+  let text = 'Hello World';
 
-  //   const changeText = function() {
-  //     const element = document.querySelector('h1');
-  //     element.textContent = text;
-  //   }
+  const changeText = function() {
+    const element = document.querySelector('h1');
+    element.textContent = text;
+  }
 
-  //   return {
-  //     callChangeText: function() {
-  //       changeText();
-  //       console.log(text);
-  //     }
-  //   }
-  // })();
+  return {
+    callChangeText: function() {
+      changeText();
+      console.log(text);
+    }
+  }
+})();
 
 
-  // UIctrl.callChangeText();
+UIctrl.callChangeText();
 
 // REVEALING MODULE PATTERN
 const ItemCtrl = (function() {
