@@ -150,7 +150,7 @@ const UICtrl = (function() {
       li.id = `item-${item.id}`;
       // Add HTML
       li.innerHTML = `
-      <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
+          <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
           <a href="#" class="secondary-content">
             <i class="edit-item fa fa-pencil"></i>
           </a>
@@ -162,17 +162,21 @@ const UICtrl = (function() {
       let listItems = document.querySelectorAll(UISelectors.listItems);
 
       // Turn Node List into an Array
-      listItems = Array.from(lietItems);
+      listItems = Array.from(listItems);
 
       listItems.forEach(function(listItem){
         const itemID = listItem.getAttribute('id');
         
-        if(itemID === `item-${item-id}`){
-          document.querySelector(************************);
+        if(itemID === `item-${item.id}`){
+          document.querySelector(`#${itemID}`).innerHTML = `
+          <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
+          <a href="#" class="secondary-content">
+            <i class="edit-item fa fa-pencil"></i>
+          </a>
+      `;
         }
       })
     },
-// *************************8888888888888888
     clearInput: function(){
       document.querySelector(UISelectors.itemNameInput).value = ''
       document.querySelector(UISelectors.itemCaloriesInput).value = ''
@@ -293,6 +297,13 @@ const AppCtrl = (function(ItemCtrl, UICtrl) {
 
     // Update UI 
     UICtrl.updateListItem(updatedItem);
+
+    // Get total calories
+    const totalCalories = ItemCtrl.getTotalCalories();
+    // Add total calories to UI
+    UICtrl.showTotalCalories(totalCalories);
+
+    UICtrl.clearEditState();
 
     e.preventDefault();
   }
