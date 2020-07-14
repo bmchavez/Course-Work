@@ -4,6 +4,16 @@
       "id": 1,
       "title": "Post One",
       "body": "This is post one"
+    },
+    {
+      "title": "2",
+      "body": "2",
+      "id": 2
+    },
+    {
+      "title": "3",
+      "body": "42",
+      "id": 3
     }
   ]
 }
