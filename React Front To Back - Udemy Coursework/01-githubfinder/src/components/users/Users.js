@@ -1,5 +1,5 @@
 // rce
-import React, { Component } from 'react';
+import React from 'react';
 import UserItem from './UserItem';
 import Spinner from '../layout/spinner';
 import PropTypes from 'prop-types';
